@@ -2,8 +2,10 @@ import { PrismaClient, User } from "@prisma/client";
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 
+// usar un patron: singlenton
 const prisma = new PrismaClient()
 const TOKEN_PASSWORD = process.env.TOKEN_PASSWORD || 'pass'
+
 export class AuthService {
     static async register(user: User) {
         // ver si el usuario no existe
@@ -46,4 +48,5 @@ export class AuthService {
         // devolver el token
         return token
     }
+
 }
