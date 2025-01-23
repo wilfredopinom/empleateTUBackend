@@ -1,5 +1,4 @@
 import { AuthService } from "@/services/auth.service";
-import { UserService } from "@/services/user.service";
 import {Response, Request} from 'express'
 
 export class AuthController{
