@@ -32,9 +32,12 @@ export class AuthService {
 
     static async login(email:string, password:string){
          // ver si el usuario existe
-         const findUser = await prisma.user.findUnique({where:{email}})
-         if(!findUser) throw new Error('Invalid user or password')
+        //const query = `SELECT id, email, role, password FROM user WHERE email='${email}'`
+        //const findUsers = await prisma.$queryRawUnsafe(query) as User[]
+        //const findUser = findUsers[0]
 
+        const findUser = await prisma.user.findUnique({where:{email}})
+        if(!findUser) throw new Error('Invalid user or password')
          // ver si el password coincide
         const isPasswordCorrect = await bcrypt.compare(password, findUser.password)
         if(!isPasswordCorrect) throw new Error('Invalid user or password')
