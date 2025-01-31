@@ -9,6 +9,7 @@ const router = Router()
 
 //GET Listar todas las ofertas localhost:3000/api/offerts/?title=react&category=dam
 router.get('/', OffertController.getAll)
+//localhost:3000/api/offerts/xxxx
 router.get('/:id', OffertController.getById)
 //POST añadir una oferta nueva localhost:3000/api/offerts/  {body}
 router.post('/', OffertController.create)
