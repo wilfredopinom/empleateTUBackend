@@ -1,4 +1,4 @@
-import { UserService } from "../services/user.service";
+import { OfferService } from "@/services/offer.service";
 import {Response, Request, NextFunction} from 'express'
 
 export class OfferController{
@@ -25,7 +25,9 @@ export class OfferController{
     static async create(req:Request, res:Response, next: NextFunction){
         try{
             const offerData = req.body
-            const newOffer = await OfferService.create(offerData)
+            const userId = req.body.user.id
+
+            const newOffer = await OfferService.create(userId, offerData)
             res.status(200).json(newOffer)
         }catch(error){
             next(error)
@@ -51,15 +53,6 @@ export class OfferController{
             next(error)
         }
     }
-    static async delete(req:Request, res:Response, next: NextFunction){
-        try{
-            const id = Number.parseInt(req.params.id)
-            const deletedOffer = await OfferService.delete(id)
-            res.status(200).json(deletedOffer)
-        }catch(error){
-            next(error)
-        }
-    }
     static async rate(req:Request, res:Response, next: NextFunction){
         try{
             const id = Number.parseInt(req.params.id)
@@ -76,7 +69,6 @@ export class OfferController{
     static async getRate(req:Request, res:Response, next: NextFunction){
         try{
             const id = Number.parseInt(req.params.id)
-
             await OfferService.getRate(id)
             res.status(200).json({message: 'Offer rate successfully'})
         }catch(error){

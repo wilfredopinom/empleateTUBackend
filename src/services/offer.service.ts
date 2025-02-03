@@ -1,6 +1,7 @@
+import { prisma } from "@/database/database";
 import { HttpException } from "../exceptions/httpException";
 import { Offer, PrismaClient, User } from "@prisma/client";
-const prisma = new PrismaClient()
+//const prisma = new PrismaClient()
 
 export class OfferService {
 
@@ -50,12 +51,14 @@ export class OfferService {
      }
 
      
-     static async rate(id: number){
-        si existe lo actualizo
-        si no existe lo creo
+     static async rate(idUser: number, id: number, value: number){
+        //si existe lo actualizo
+       // si no existe lo creo
      }
 
-     
+     static async getRate(id: number){
+       
+     }
 
 
 
@@ -68,11 +71,4 @@ export class OfferService {
         return findUser
     }
 
-   
-    static async getAll(){
-        const users = await prisma.user.findMany({
-            omit: {password:true}
-        })
-        return users
-    }
 }
