@@ -9,7 +9,15 @@ import helmet from 'helmet'
 import compression from 'compression'
 import cookieParser  from 'cookie-parser'
 import cors  from 'cors'
+import { libsql } from './database/database'
 const app = express()
+
+/* app.use(async (req, res, next) => {
+    await libsql.sync()
+    next()
+  }) */
+
+
 app.use(cookieParser())
 //todo limitar cors
 //cambiar la url cuando deploy
