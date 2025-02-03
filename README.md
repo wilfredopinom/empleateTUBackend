@@ -33,6 +33,10 @@ npm i --save-dev @types/cors
 npm i express-validator
 
 
+npm install -g npm-check-updates
+npx npm-check-updates           // comprobar
+npx npm-check-updates -u        // actualiza
+
 ```
 
 Ejercicio 1:
@@ -50,3 +54,11 @@ El formulario de registro
 
 Ejercicio 3:
 Crea un fronted con Vite + tailwind 4.0 + react
+
+
+
+
+libsql://empleatetu-kant003.turso.io
+
+
+eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3Mzg1ODE3NTQsImlkIjoiZWQ3N2M4YmYtZGU0MS00MzYyLTk0OWItNTFmNjQ4MTVhMWMzIn0.7puhm5vV9ID84Hol4lzG563KH6SKHqONPLVD6WYu9sjIYFfrFjv4_eY-AQACH_xwaszolxgo7u1WtrYl7akvDA
