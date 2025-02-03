@@ -1,4 +1,4 @@
-import { prisma } from "@/database/database";
+import { prisma } from "../database/database";
 import { HttpException } from "../exceptions/httpException";
 import { Offer, PrismaClient, User } from "@prisma/client";
 //const prisma = new PrismaClient()
