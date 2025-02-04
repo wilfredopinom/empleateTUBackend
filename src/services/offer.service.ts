@@ -51,8 +51,8 @@ export class OfferService {
 
      
      static async rate(id: number){
-        si existe lo actualizo
-        si no existe lo creo
+       // si existe lo actualizo
+       // si no existe lo creo
      }
 
      
