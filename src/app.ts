@@ -1,7 +1,7 @@
 import express, {Response, Request} from 'express'
 import authRouter from './routes/auth.routes'
 import userRouter from './routes/user.routes'
-import offertRouter from './routes/offert.routes'
+import offerRouter from './routes/offer.routes'
 import categoryRouter from './routes/category.routes'
 
 import rateLimit from 'express-rate-limit'
@@ -9,6 +9,7 @@ import helmet from 'helmet'
 import compression from 'compression'
 import cookieParser  from 'cookie-parser'
 import cors  from 'cors'
+import morgan from 'morgan'
 import { libsql } from './database/database'
 const app = express()
 
@@ -30,16 +31,17 @@ app.use(cors({
 app.use(express.json())
 app.use(helmet())
 app.use(compression())
+app.use(morgan('tiny'))
 const limiter = rateLimit({
-    max: 100,
+    max: 1000,
     windowMs: 1000 * 15 * 60 // 15 minutos
 })
 app.use(limiter)
 
 app.use('/api/auth',authRouter)
 app.use('/api/users',userRouter)
-app.use('/api/offerts', offertRouter)
-app.use('/api/cagegories', categoryRouter)
+app.use('/api/offers', offerRouter)
+app.use('/api/categories', categoryRouter)
 
 app.get('/', (req:Request, res:Response)=>{
     res.send('Bienvenido al backend (api rest)')
