@@ -21,8 +21,7 @@ export class AuthController {
     static async login(req: Request, res: Response, next: NextFunction) {
         try {
             const userData = req.body;
-            console.log('looo',userData.email, userData.password);
-            const { token, user } = await AuthService.login(userData.email, userData.password);
+                 const { token, user } = await AuthService.login(userData.email, userData.password);
             //TODO inyectar cookie al cliente
             console.log(token, user)
 
